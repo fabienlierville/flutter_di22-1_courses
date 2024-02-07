@@ -20,4 +20,9 @@ class Magasin {
       nom: map['nom'] as String,
     );
   }
+
+  @override
+  String toString() {
+    return 'Magasin{id: $id, nom: $nom}';
+  }
 }

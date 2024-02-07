@@ -13,8 +13,7 @@ class DatabaseService{
   }
 
   static Future<Database> _opendb() async{
-    // Si problème regarder ici absolument
-    Database bdd = await openDatabase("/data/database.db", version: 1, onCreate: _onCreate);
+    Database bdd = await openDatabase("./data/database.db", version: 1, onCreate: _onCreate);
     return bdd;
   }
 
