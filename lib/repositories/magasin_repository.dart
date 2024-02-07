@@ -38,6 +38,11 @@ class MagasinRepository{
 
   }
   //Update
+  static Future<int> update(Magasin magasin) async{
+    //Récupérer connexion BDD
+    Database bdd = await DatabaseService.database;
+    return await bdd.update("magasin", magasin.toMap(),where: "id=?",whereArgs: [magasin.id]);
+  }
 
   //Delete
 
