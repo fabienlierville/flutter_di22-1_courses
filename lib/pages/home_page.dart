@@ -18,13 +18,23 @@ class _HomePageState extends State<HomePage> {
         child: FilledButton(
           child: Text("Ajout d'un magasin"),
           onPressed: () async{
+            /*
             //Créer objet Magasin
             Magasin magasin = Magasin(nom: "Leclerc");
             print(magasin);
             // Appeler le Create du repository
             magasin =await  MagasinRepository.add(magasin);
             print(magasin);
+             */
+            /*
+            List<Magasin> magasins = await MagasinRepository.getAll();
+            print(magasins);
+             */
+            Magasin? magasin = await MagasinRepository.getByID(2);
+            print(magasin);
           },
+
+
         ),
       ),
     );

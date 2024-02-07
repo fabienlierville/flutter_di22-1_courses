@@ -14,4 +14,31 @@ class MagasinRepository{
     return magasin;
   }
 
+  //GetAll
+  static Future<List<Magasin>> getAll() async{
+    //Récupérer connexion BDD
+    Database bdd = await DatabaseService.database;
+    List<Map<String,dynamic>> result = await bdd.query("magasin");
+    List<Magasin> l =[];
+    result.forEach((map) {
+      l.add(Magasin.fromMap(map));
+    });
+    return l;
+  }
+
+  //GetByID
+  static Future<Magasin?> getByID(int id) async{
+    //Récupérer connexion BDD
+    Database bdd = await DatabaseService.database;
+    List<Map<String,dynamic>> result = await bdd.rawQuery("SELECT id,nom FROM magasin WHERE id=?",[id]);
+    if(result.length > 0){
+      return Magasin.fromMap(result[0]);
+    }
+    return null;
+
+  }
+  //Update
+
+  //Delete
+
 }
