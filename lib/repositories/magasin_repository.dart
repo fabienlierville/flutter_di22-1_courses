@@ -45,5 +45,9 @@ class MagasinRepository{
   }
 
   //Delete
-
+  static Future<int> delete(Magasin magasin) async{
+    //Récupérer connexion BDD
+    Database bdd = await DatabaseService.database;
+    return await bdd.delete("magasin",where: "id=?",whereArgs: [magasin.id]);
+  }
 }

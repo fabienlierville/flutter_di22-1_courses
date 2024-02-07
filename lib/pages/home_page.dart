@@ -32,6 +32,11 @@ class _HomePageState extends State<HomePage> {
              */
             Magasin? magasin = await MagasinRepository.getByID(2);
             print(magasin);
+
+            await MagasinRepository.delete(magasin!);
+
+            List<Magasin> magasins = await MagasinRepository.getAll();
+            print(magasins);
           },
 
 
