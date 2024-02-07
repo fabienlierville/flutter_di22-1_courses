@@ -57,9 +57,13 @@ class _ArticlePageState extends State<ArticlePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(article.nom),
-                      (article.image == null || article.image.length == 0)
-                        ? Image.asset("assets/images/no_image.png")
-                        : Image.file(File(article.image)),
+                      Container(
+                        height: MediaQuery.of(context).size.height/6,
+                        child: (article.image == null || article.image.length == 0)
+                            ? Image.asset("assets/images/no_image.png")
+                            : Image.file(File(article.image), fit: BoxFit.contain,),
+                      ),
+
                     Text((article.prix ==null) ? "Aucun prix renseigné" : "Prix: ${article.prix}€"),
 
                   ],
